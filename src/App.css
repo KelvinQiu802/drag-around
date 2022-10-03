@@ -1,13 +1,19 @@
 .droppable {
   position: relative;
-  width: 90vw;
+  width: 60vw;
   height: 90vh;
   border: 1px solid skyblue;
 }
 
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.item {
+  border: 1px solid black;
+  padding: 10px;
 }

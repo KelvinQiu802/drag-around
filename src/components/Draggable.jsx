@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 
-function Draggable({ left, top }) {
+function Draggable({ left, top, id }) {
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type: 'box',
-      item: { left, top },
+      item: { left, top, id },
       collect: (monitor) => ({
         isDragging: monitor.isDragging(),
       }),
     }),
-    [top, left]
+    [top, left, id]
   );
 
   return (
