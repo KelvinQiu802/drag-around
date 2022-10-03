@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Droppable>
+      <Droppable setPosition={setPosition}>
         <Draggable top={position.top} left={position.left} />
       </Droppable>
     </div>
