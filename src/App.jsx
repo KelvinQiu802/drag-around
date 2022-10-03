@@ -1,5 +1,6 @@
 import './App.css';
 import Draggable from './components/draggable';
+import Droppable from './components/Droppable';
 import React from 'react';
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
 
   return (
     <div className='App'>
-      <Draggable top={position.top} left={position.left} />
+      <Droppable>
+        <Draggable top={position.top} left={position.left} />
+      </Droppable>
     </div>
   );
 }

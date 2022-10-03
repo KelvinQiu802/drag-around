@@ -1,0 +1,13 @@
+.droppable {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  border: 1px solid skyblue;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
