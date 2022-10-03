@@ -12,15 +12,29 @@ function Droppable({ children, setContent }) {
       const left = Math.round(item.left + delta.x);
       const top = Math.round(item.top + delta.y);
 
-      // Add
-      setContent((prev) => [
-        ...prev,
-        {
-          id: nanoid(),
-          left: monitor.getClientOffset().x - node.current.offsetLeft,
-          top: monitor.getClientOffset().y - node.current.offsetTop,
-        },
-      ]);
+      if (item.state === 'new') {
+        // Add
+        setContent((prev) => [
+          ...prev,
+          {
+            id: nanoid(),
+            left: monitor.getClientOffset().x - node.current.offsetLeft,
+            top: monitor.getClientOffset().y - node.current.offsetTop,
+          },
+        ]);
+      } else {
+        setContent((prev) => {
+          const arrCopy = [...prev];
+          const index = prev.findIndex((each) => each.id === item.id);
+          const copyItem = arrCopy[index];
+          arrCopy.splice(index, 1, {
+            ...copyItem,
+            left,
+            top,
+          });
+          return arrCopy;
+        });
+      }
     },
   }));
 

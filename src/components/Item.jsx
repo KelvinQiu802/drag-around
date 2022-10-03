@@ -4,6 +4,7 @@ import { useDrag } from 'react-dnd';
 function Item() {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'box',
+    item: { state: 'new' },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
